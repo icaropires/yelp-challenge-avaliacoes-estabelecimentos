@@ -10,8 +10,13 @@ import json
 #     b = {'business_id': b}                                                                                                           
 #     return {**a, **b}
 
-for column in df_a.columns:
-    df_a = df_a.withColumn(column, F.when(df_a[column] == 'True', F.lit(1)).when(df_a[column] == 'False', 0).otherwise(df_a[column]))
+# for column in df_a.columns:
+#     df_a = df_a.withColumn(column, F.when(df_a[column] == 'True', F.lit(1)).when(df_a[column] == 'False', 0).otherwise(df_a[column]))
+
+# checking null percentage
+# a = dict()
+# for column in df.columns:
+#     a[column] = df.filter(df[column].isNull()).count()/59774 * 100
 
 def drop_not_restaurants(e_list):
     def check_keys(e_dict):
